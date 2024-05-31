@@ -1,4 +1,13 @@
-import { ChangeEvent, ComponentProps, ReactNode, useState, useRef } from 'react'
+import {
+  ChangeEvent,
+  ComponentProps,
+  ReactNode,
+  useState,
+  useRef,
+  forwardRef,
+  ElementRef,
+  useImperativeHandle,
+} from 'react'
 import {
   ErrorLabel,
   Input,
@@ -20,67 +29,76 @@ interface PlaceholderVariantAttributesProps {
   placeholdersize: 'small' | 'medium' | 'iconsmall' | 'iconmedium'
 }
 
-export function TextInput({
-  icon,
-  errorMessage,
-  inputSize,
-  inputWidth,
-  isRequired,
-  placeholder,
-  ...props
-}: TextInputProps) {
-  const variantsAttributes = {
-    inputsize: inputSize,
-    inputwidth: inputWidth,
-  }
+export const TextInput = forwardRef<ElementRef<typeof Input>, TextInputProps>(
+  (
+    {
+      icon,
+      errorMessage,
+      inputSize,
+      inputWidth,
+      isRequired,
+      placeholder,
+      ...props
+    }: TextInputProps,
+    ref,
+  ) => {
+    const inputRef = useRef<ElementRef<typeof Input>>(null)
 
-  const placeholderVariantsAttributes: PlaceholderVariantAttributesProps = {
-    placeholdersize: 'medium',
-  }
+    useImperativeHandle(ref, () => inputRef.current as HTMLInputElement)
 
-  if (inputSize === 'small') {
-    placeholderVariantsAttributes.placeholdersize = 'small'
-  }
+    const variantsAttributes = {
+      inputsize: inputSize,
+      inputwidth: inputWidth,
+    }
 
-  if (icon) {
+    const placeholderVariantsAttributes: PlaceholderVariantAttributesProps = {
+      placeholdersize: 'medium',
+    }
+
     if (inputSize === 'small') {
-      placeholderVariantsAttributes.placeholdersize = 'iconsmall'
-    } else {
-      placeholderVariantsAttributes.placeholdersize = 'iconmedium'
+      placeholderVariantsAttributes.placeholdersize = 'small'
     }
-  }
 
-  const [showPlaceholder, setShowPlaceholder] = useState<boolean>(!!placeholder)
-  const inputRef = useRef<HTMLInputElement>(null)
-
-  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-    if (placeholder) {
-      if (e.target.value) setShowPlaceholder(false)
-      else setShowPlaceholder(true)
+    if (icon) {
+      if (inputSize === 'small') {
+        placeholderVariantsAttributes.placeholdersize = 'iconsmall'
+      } else {
+        placeholderVariantsAttributes.placeholdersize = 'iconmedium'
+      }
     }
-  }
 
-  const handleTextInputClick = () => {
-    if (inputRef.current) {
-      inputRef.current.focus()
+    const [showPlaceholder, setShowPlaceholder] =
+      useState<boolean>(!!placeholder)
+
+    const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+      if (placeholder) {
+        if (e.target.value) setShowPlaceholder(false)
+        else setShowPlaceholder(true)
+      }
     }
-  }
 
-  return (
-    <TextInputContainer {...variantsAttributes}>
-      <InputText onClick={handleTextInputClick}>
-        {icon || null}
-        <Input ref={inputRef} onChange={handleInputChange} {...props} />
-        {showPlaceholder ? (
-          <Placeholder {...placeholderVariantsAttributes}>
-            {placeholder}
-            {isRequired ? <span>*</span> : null}
-          </Placeholder>
-        ) : null}
-      </InputText>
-      <ErrorLabel>{errorMessage || null}</ErrorLabel>
-    </TextInputContainer>
-  )
-}
+    const handleTextInputClick = () => {
+      if (inputRef.current) {
+        inputRef.current.focus()
+      }
+    }
+
+    return (
+      <TextInputContainer {...variantsAttributes}>
+        <InputText onClick={handleTextInputClick}>
+          {icon || null}
+          <Input ref={inputRef} onChange={handleInputChange} {...props} />
+          {showPlaceholder ? (
+            <Placeholder {...placeholderVariantsAttributes}>
+              {placeholder}
+              {isRequired ? <span>*</span> : null}
+            </Placeholder>
+          ) : null}
+        </InputText>
+        <ErrorLabel>{errorMessage || null}</ErrorLabel>
+      </TextInputContainer>
+    )
+  },
+)
 
 TextInput.displayName = 'TextInput'

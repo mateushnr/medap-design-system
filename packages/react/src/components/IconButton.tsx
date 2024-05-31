@@ -13,7 +13,7 @@ export const IconButton = styled('button', {
   cursor: 'pointer',
 
   '&:not(:disabled):focus': {
-    outline: '2px solid $brand_600',
+    boxShadow: '0 0 0 2px $brand_600',
   },
 
   variants: {
