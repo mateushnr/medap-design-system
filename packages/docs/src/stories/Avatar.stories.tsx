@@ -6,7 +6,7 @@ export default {
   component: Avatar,
   tags: ['autodocs'],
   args: {
-    src: '/avatarMedapDark.png',
+    src: 'https://github.com/mateushnr.png',
     alt: 'Logo Medap',
   },
 } as Meta<AvatarProps>
