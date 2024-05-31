@@ -21,6 +21,9 @@ jobs:
 
       - name: Build Storybook
         run: yarn build
+        env:
+          TURBO_TOKEN: SNDtttfxyflGQTmeEufuFhOu
+          TURBO_TEAM: mateushnras-projects
 
       - name: Deploy storybook
         working-directory: ./packages/docs
