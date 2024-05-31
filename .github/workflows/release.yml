@@ -1,0 +1,38 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - main
+
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+
+jobs:
+  release:
+    name: Release
+    runs-on: ubunto-latest
+    steps:
+        - name: Checkout
+          uses: actions/checkout@v4
+
+        - name: Setup Node.js
+          uses: actions/setup-node@v4
+          with:
+            node-version: 18
+            cache: 'yarn'
+            cache-dependency-path: '**/yarn.lock'
+
+        - name: Install dependencies
+          run: rm -rf node_modules && yarn install --frozen-lockfile
+            T
+
+        - name: Publish to NPM
+          id: changesets
+          uses: changesets/action@v1
+          with:
+            publish: yarn release
+          env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+            URBO_TOKEN: SNDtttfxyflGQTmeEufuFhOu
+            TURBO_TEAM: mateushnras-projects

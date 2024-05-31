@@ -44,4 +44,6 @@ export const colors = {
     'linear-gradient(to bottom, #2D7F5A 0%, #3A9B5F 50%, #47B75F 100%)',
   gradient_brand_dark:
     'linear-gradient(to bottom, #0C2325 0%, #16433F 50%, #216150 100%)',
+
+  test: '#f1f1f1',
 }
