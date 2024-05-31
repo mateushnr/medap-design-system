@@ -23,7 +23,7 @@ jobs:
             cache-dependency-path: '**/yarn.lock'
 
         - name: Install dependencies
-          run: rm -rf node_modules && yarn install --frozen-lockfile
+          run: rm -rf node_modules && yarn add T --frozen-lockfile
             T
 
         - name: Publish to NPM
