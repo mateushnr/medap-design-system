@@ -1,0 +1,11 @@
+{
+  "name": "@medap-ui/eslint-config",
+  "main": "index.js",
+  "version": "1.0.0",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "@rocketseat/eslint-config": "^2.2.2",
+    "eslint": "^8"
+  }
+}

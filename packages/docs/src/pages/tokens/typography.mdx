@@ -1,0 +1,31 @@
+import { Meta } from '@storybook/addon-docs'
+import { FontFamilies } from '../../components/FontFamilies'
+import { FontSizes } from '../../components/FontSizes'
+import { FontWeights } from '../../components/FontWeights'
+import { LineHeights } from '../../components/LineHeights'
+import { formattedFontFamilies } from '../../components/FontFamilies/formattedFontFamilies'
+import { formattedFontSizes } from '../../components/FontSizes/formattedSpaces'
+import { formattedFontWeights } from '../../components/FontWeights/formattedFontWeights'
+import { formattedLineHeights } from '../../components/LineHeights/formattedLineHeights'
+
+<Meta title="Tokens/Typography" />
+
+# Tipografia
+
+Tokens de fonte e tipografia do design system do Medap
+
+## Famílias de fonte
+<FontFamilies fontFamilies={formattedFontFamilies} />
+<br/>
+<br/>
+
+## Tamanhos de fonte
+<FontSizes fontSizes={formattedFontSizes} />
+<br/>
+
+## Pesos das fontes
+<FontWeights fontWeights={formattedFontWeights} />
+<br/>
+
+## Alturas de linha
+<LineHeights lineHeights={formattedLineHeights} />

@@ -1,0 +1,38 @@
+import { Meta } from '@storybook/addon-docs'
+import { ColorsGrid } from '../../components/ColorsGrid'
+import { brandColors, grayColors, dangerColors, warningColors, gradientColors } from '../../components/ColorsGrid/formattedColors'
+
+<Meta title="Tokens/Colors" />
+
+# Paleta de cores
+
+Tokens da paleta de cores do design system do Medap
+
+## Brand
+
+<br/>
+<ColorsGrid colors={brandColors} isGradient={false}/>
+<br/>
+
+## Tons de cinza
+
+<br/>
+<ColorsGrid colors={grayColors} isGradient={false}/>
+<br/>
+
+## Danger
+
+<br/>
+<ColorsGrid colors={dangerColors} isGradient={false}/>
+<br/>
+
+## Warning
+
+<br/>
+<ColorsGrid colors={warningColors} isGradient={false}/>
+<br/>
+
+## Gradient
+
+<br/>
+<ColorsGrid colors={gradientColors} isGradient={true}/>

@@ -1,0 +1,3 @@
+{
+  "extends": "@medap-ui/eslint-config"
+}
