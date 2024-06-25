@@ -4,7 +4,7 @@ import { ComponentProps, ReactNode, useEffect, useRef } from 'react'
 
 export interface ModalProps extends ComponentProps<typeof ModalContent> {
   children: ReactNode
-  childrenHeader: ReactNode
+  childrenHeader?: ReactNode
   modalOpen: boolean
   closeModal: () => void
   variant?: string
