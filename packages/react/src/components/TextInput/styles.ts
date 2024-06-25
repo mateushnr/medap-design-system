@@ -54,17 +54,17 @@ export const TextInputContainer = styled('div', {
     inputwidth: {
       small: {
         '& > div': {
-          width: 120,
+          maxWidth: 130,
         },
       },
       medium: {
         '& > div': {
-          width: 240,
+          maxWidth: 240,
         },
       },
       large: {
         '& > div': {
-          width: 440,
+          maxWidth: 440,
         },
       },
       full: {
