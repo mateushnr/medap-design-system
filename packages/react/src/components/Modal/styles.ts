@@ -15,7 +15,7 @@ export const ModalContent = styled('div', {
   padding: '$8',
   marginBottom: '$8',
   borderRadius: '$small',
-  position: 'absolute',
+  position: 'fixed',
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
