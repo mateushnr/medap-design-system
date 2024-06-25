@@ -1,5 +1,11 @@
 # @medap-ui/react
 
+## 1.1.0
+
+### Minor Changes
+
+- Add Modal and Textarea componenet
+
 ## 1.0.2
 
 ### Patch Changes
