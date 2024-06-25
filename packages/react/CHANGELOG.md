@@ -1,5 +1,11 @@
 # @medap-ui/react
 
+## 1.1.1
+
+### Patch Changes
+
+- Changed modal position to fixed
+
 ## 1.1.0
 
 ### Minor Changes
