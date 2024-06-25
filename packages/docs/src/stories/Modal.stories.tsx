@@ -6,6 +6,9 @@ export default {
   title: 'Components/Modal',
   component: Modal,
   tags: ['autodocs'],
+  parameters: {
+    layout: 'centered',
+  },
   args: {
     variant: 'default',
     modalOpen: false,
@@ -17,7 +20,7 @@ export default {
           gap: '1rem',
         }}
       >
-        <Heading size={'4xlarge'}>Lorem ipsum dolor</Heading>{' '}
+        <Heading size={'4xlarge'}>Lorem ipsum dolor</Heading>
         <Text
           size={'medium'}
           style={{
@@ -42,9 +45,11 @@ export default {
       control: 'boolean',
     },
     children: {
-      control: 'text',
+      description: 'Conteúdo do modal',
+      control: { type: 'text' },
     },
     childrenHeader: {
+      description: 'Título do modal',
       control: 'text',
     },
   },
@@ -106,7 +111,7 @@ export const ModalWithHeader: StoryObj<ModalProps> = {
         </Text>
       </div>
     ),
-    childrenTitle: (
+    childrenHeader: (
       <Heading size={'4xlarge'}>Lorem ipsum dolor sit amet</Heading>
     ),
   },

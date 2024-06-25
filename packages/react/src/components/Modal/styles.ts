@@ -6,8 +6,8 @@ const fadeIn = keyframes({
 })
 
 const scaleUp = keyframes({
-  '0%': { transform: 'translate(-50%, 0) scale(0.5)' },
-  '100%': { transform: 'translate(-50%, 0) scale(1)' },
+  '0%': { transform: 'translate(-50%, -50%) scale(0.5)' },
+  '100%': { transform: 'translate(-50%, -50%) scale(1)' },
 })
 
 export const ModalContent = styled('div', {
@@ -16,9 +16,9 @@ export const ModalContent = styled('div', {
   marginBottom: '$8',
   borderRadius: '$small',
   position: 'absolute',
-  top: '$30',
+  top: '50%',
   left: '50%',
-  transform: 'translate(-50%, 0)',
+  transform: 'translate(-50%, -50%)',
   zIndex: 20,
 
   animation: `${fadeIn} 0.2s ease-in-out, ${scaleUp} 0.2s ease-in-out`,

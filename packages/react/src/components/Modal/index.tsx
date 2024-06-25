@@ -4,7 +4,7 @@ import { ComponentProps, ReactNode, useEffect, useRef } from 'react'
 
 export interface ModalProps extends ComponentProps<typeof ModalContent> {
   children: ReactNode
-  childrenTitle: ReactNode
+  childrenHeader: ReactNode
   modalOpen: boolean
   closeModal: () => void
   variant?: string
@@ -12,7 +12,7 @@ export interface ModalProps extends ComponentProps<typeof ModalContent> {
 
 export function Modal({
   children,
-  childrenTitle,
+  childrenHeader,
   modalOpen,
   closeModal,
   variant,
@@ -45,7 +45,7 @@ export function Modal({
           <ModalContent ref={modalRef}>
             {variant === 'withHeader' ? (
               <ModalHeader>
-                {childrenTitle}
+                {childrenHeader}
                 <CloseButton variant={'withHeader'} onClick={closeModal}>
                   <X size={24} strokeWidth={2.5} />
                 </CloseButton>
