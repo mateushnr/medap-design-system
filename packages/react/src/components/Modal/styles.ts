@@ -10,6 +10,11 @@ const scaleUp = keyframes({
   '100%': { transform: 'translate(-50%, -50%) scale(1)' },
 })
 
+const scaleUpBp3 = keyframes({
+  '0%': { transform: 'translate(-5%, -5%) scale(0.5)' },
+  '100%': { transform: 'translate(-5%, -5%) scale(1)' },
+})
+
 export const ModalContent = styled('div', {
   backgroundColor: '$white',
   padding: '$8',
@@ -28,6 +33,7 @@ export const ModalContent = styled('div', {
     left: '10%',
     maxWidth: '100%',
     transform: 'translate(-5%, -5%)',
+    animation: `${fadeIn} 0.2s ease-in-out, ${scaleUpBp3} 0.2s ease-in-out`,
   },
 })
 

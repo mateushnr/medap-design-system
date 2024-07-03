@@ -1,5 +1,11 @@
 # @medap-ui/react
 
+## 1.1.4
+
+### Patch Changes
+
+- Fix pop up animation of modal with responsiveness
+
 ## 1.1.3
 
 ### Patch Changes
