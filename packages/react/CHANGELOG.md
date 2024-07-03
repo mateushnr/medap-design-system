@@ -1,5 +1,11 @@
 # @medap-ui/react
 
+## 1.1.3
+
+### Patch Changes
+
+- Fix responsiveness Modal layout for smaller screens
+
 ## 1.1.2
 
 ### Patch Changes

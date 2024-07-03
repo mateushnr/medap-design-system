@@ -22,6 +22,13 @@ export const ModalContent = styled('div', {
   zIndex: 20,
 
   animation: `${fadeIn} 0.2s ease-in-out, ${scaleUp} 0.2s ease-in-out`,
+
+  '@bp3': {
+    top: '10%',
+    left: '10%',
+    maxWidth: '100%',
+    transform: 'translate(-5%, -5%)',
+  },
 })
 
 export const ModalWrapper = styled('div', {
