@@ -7,6 +7,7 @@ import {
   forwardRef,
   ElementRef,
   useImperativeHandle,
+  useEffect,
 } from 'react'
 import {
   ErrorLabel,
@@ -74,6 +75,11 @@ export const TextInput = forwardRef<ElementRef<typeof Input>, TextInputProps>(
         ? controlledPlaceholderState
         : !!Placeholder,
     )
+
+    useEffect(() => {
+      if (controlledPlaceholderState !== undefined)
+        setShowPlaceholder(controlledPlaceholderState)
+    }, [controlledPlaceholderState])
 
     const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
       if (inputPlaceholder) {

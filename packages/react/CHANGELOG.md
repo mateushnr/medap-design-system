@@ -1,5 +1,11 @@
 # @medap-ui/react
 
+## 1.1.7
+
+### Patch Changes
+
+- Fix input and textarea controlledPlaceholderState reactivity
+
 ## 1.1.6
 
 ### Patch Changes

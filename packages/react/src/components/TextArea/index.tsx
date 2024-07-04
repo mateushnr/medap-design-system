@@ -4,6 +4,7 @@ import {
   ElementRef,
   ReactNode,
   forwardRef,
+  useEffect,
   useImperativeHandle,
   useRef,
   useState,
@@ -77,6 +78,11 @@ export const TextArea = forwardRef<ElementRef<typeof Textarea>, TextAreaProps>(
         ? controlledPlaceholderState
         : !!Placeholder,
     )
+
+    useEffect(() => {
+      if (controlledPlaceholderState !== undefined)
+        setShowPlaceholder(controlledPlaceholderState)
+    }, [controlledPlaceholderState])
 
     const handleTextAreaChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
       if (textAreaPlaceholder) {
