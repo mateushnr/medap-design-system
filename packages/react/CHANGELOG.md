@@ -1,5 +1,11 @@
 # @medap-ui/react
 
+## 1.1.6
+
+### Patch Changes
+
+- Fix controlled input and textarea placeholder state
+
 ## 1.1.5
 
 ### Patch Changes
