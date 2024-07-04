@@ -21,7 +21,7 @@ export interface TextInputProps extends ComponentProps<typeof Input> {
   errorMessage?: string
   inputSize?: 'small' | 'medium' | undefined
   inputWidth?: 'small' | 'medium' | 'large' | 'full' | undefined
-  placeholder?: string
+  inputPlaceholder?: string
   isRequired?: boolean
 }
 
@@ -37,7 +37,7 @@ export const TextInput = forwardRef<ElementRef<typeof Input>, TextInputProps>(
       inputSize,
       inputWidth,
       isRequired,
-      placeholder,
+      inputPlaceholder,
       ...props
     }: TextInputProps,
     ref,
@@ -68,10 +68,10 @@ export const TextInput = forwardRef<ElementRef<typeof Input>, TextInputProps>(
     }
 
     const [showPlaceholder, setShowPlaceholder] =
-      useState<boolean>(!!placeholder)
+      useState<boolean>(!!inputPlaceholder)
 
     const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-      if (placeholder) {
+      if (inputPlaceholder) {
         if (e.target.value) setShowPlaceholder(false)
         else setShowPlaceholder(true)
       }
@@ -90,7 +90,7 @@ export const TextInput = forwardRef<ElementRef<typeof Input>, TextInputProps>(
           <Input ref={inputRef} onChange={handleInputChange} {...props} />
           {showPlaceholder ? (
             <Placeholder {...placeholderVariantsAttributes}>
-              {placeholder}
+              {inputPlaceholder}
               {isRequired ? <span>*</span> : null}
             </Placeholder>
           ) : null}

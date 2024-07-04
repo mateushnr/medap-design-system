@@ -1,5 +1,11 @@
 # @medap-ui/react
 
+## 1.1.5
+
+### Patch Changes
+
+- Fix conflict between placeholder property and attribute
+
 ## 1.1.4
 
 ### Patch Changes

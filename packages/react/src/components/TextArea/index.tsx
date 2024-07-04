@@ -22,7 +22,7 @@ export interface TextAreaProps extends ComponentProps<typeof Textarea> {
   textAreaSize?: 'small' | 'medium' | undefined
   textAreaWidth?: 'small' | 'medium' | 'large' | 'full' | undefined
   textAreaHeight?: 'small' | 'medium' | undefined
-  placeholder?: string
+  textAreaPlaceholder?: string
   isRequired?: boolean
 }
 
@@ -39,7 +39,7 @@ export const TextArea = forwardRef<ElementRef<typeof Textarea>, TextAreaProps>(
       textAreaWidth,
       textAreaHeight,
       isRequired,
-      placeholder,
+      textAreaPlaceholder,
       ...props
     }: TextAreaProps,
     ref,
@@ -71,10 +71,10 @@ export const TextArea = forwardRef<ElementRef<typeof Textarea>, TextAreaProps>(
     }
 
     const [showPlaceholder, setShowPlaceholder] =
-      useState<boolean>(!!placeholder)
+      useState<boolean>(!!textAreaPlaceholder)
 
     const handleTextAreaChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
-      if (placeholder) {
+      if (textAreaPlaceholder) {
         if (e.target.value) setShowPlaceholder(false)
         else setShowPlaceholder(true)
       }
@@ -97,7 +97,7 @@ export const TextArea = forwardRef<ElementRef<typeof Textarea>, TextAreaProps>(
           ></Textarea>
           {showPlaceholder ? (
             <Placeholder {...placeholderVariantsAttributes}>
-              {placeholder}
+              {textAreaPlaceholder}
               {isRequired ? <span>*</span> : null}
             </Placeholder>
           ) : null}

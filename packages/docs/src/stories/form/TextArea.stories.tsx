@@ -11,7 +11,7 @@ export default {
     textAreaSize: 'medium',
     textAreaWidth: 'medium',
     textAreaHeight: 'small',
-    placeholder: '',
+    textAreaPlaceholder: '',
     isRequired: false,
   },
   argTypes: {
@@ -35,20 +35,20 @@ export default {
 
 export const Primary: StoryObj<TextAreaProps> = {
   args: {
-    placeholder: 'Placeholder',
+    textAreaPlaceholder: 'Placeholder',
   },
 }
 
 export const Secondary: StoryObj<TextAreaProps> = {
   args: {
-    placeholder: 'Placeholder',
+    textAreaPlaceholder: 'Placeholder',
     textAreaSize: 'small',
   },
 }
 
 export const Disabled: StoryObj<TextAreaProps> = {
   args: {
-    placeholder: 'Placeholder',
+    textAreaPlaceholder: 'Placeholder',
     disabled: true,
   },
 }
@@ -56,34 +56,34 @@ export const Disabled: StoryObj<TextAreaProps> = {
 export const WithIcon: StoryObj<TextAreaProps> = {
   args: {
     icon: <Cross />,
-    placeholder: 'Placeholder',
+    textAreaPlaceholder: 'Placeholder',
   },
 }
 
 export const Required: StoryObj<TextAreaProps> = {
   args: {
-    placeholder: 'Placeholder',
+    textAreaPlaceholder: 'Placeholder',
     isRequired: true,
   },
 }
 
 export const WithError: StoryObj<TextAreaProps> = {
   args: {
-    placeholder: 'Placeholder',
+    textAreaPlaceholder: 'Placeholder',
     errorMessage: 'Mensagem de erro',
   },
 }
 
 export const FullWidth: StoryObj<TextAreaProps> = {
   args: {
-    placeholder: 'Placeholder',
+    textAreaPlaceholder: 'Placeholder',
     textAreaWidth: 'full',
   },
 }
 
 export const Taller: StoryObj<TextAreaProps> = {
   args: {
-    placeholder: 'Placeholder',
+    textAreaPlaceholder: 'Placeholder',
     textAreaHeight: 'medium',
   },
 }

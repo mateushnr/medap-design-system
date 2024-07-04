@@ -10,7 +10,7 @@ export default {
     errorMessage: '',
     inputSize: 'medium',
     inputWidth: 'medium',
-    placeholder: '',
+    inputPlaceholder: '',
     isRequired: false,
   },
   argTypes: {
@@ -30,20 +30,20 @@ export default {
 
 export const Primary: StoryObj<TextInputProps> = {
   args: {
-    placeholder: 'Placeholder',
+    inputPlaceholder: 'Placeholder',
   },
 }
 
 export const Secondary: StoryObj<TextInputProps> = {
   args: {
-    placeholder: 'Placeholder',
+    inputPlaceholder: 'Placeholder',
     inputSize: 'small',
   },
 }
 
 export const Disabled: StoryObj<TextInputProps> = {
   args: {
-    placeholder: 'Placeholder',
+    inputPlaceholder: 'Placeholder',
     disabled: true,
   },
 }
@@ -51,27 +51,27 @@ export const Disabled: StoryObj<TextInputProps> = {
 export const WithIcon: StoryObj<TextInputProps> = {
   args: {
     icon: <Cross />,
-    placeholder: 'Placeholder',
+    inputPlaceholder: 'Placeholder',
   },
 }
 
 export const Required: StoryObj<TextInputProps> = {
   args: {
-    placeholder: 'Placeholder',
+    inputPlaceholder: 'Placeholder',
     isRequired: true,
   },
 }
 
 export const WithError: StoryObj<TextInputProps> = {
   args: {
-    placeholder: 'Placeholder',
+    inputPlaceholder: 'Placeholder',
     errorMessage: 'Mensagem de erro',
   },
 }
 
 export const FullWidth: StoryObj<TextInputProps> = {
   args: {
-    placeholder: 'Placeholder',
+    inputPlaceholder: 'Placeholder',
     inputWidth: 'full',
   },
 }
