@@ -12,6 +12,7 @@ export default {
     size: 'medium',
     width: 'default',
     disabled: false,
+    isLoading: false,
   },
   argTypes: {
     variant: {
@@ -41,6 +42,12 @@ export default {
     },
 
     disabled: {
+      control: {
+        type: 'boolean',
+      },
+    },
+
+    isLoading: {
       control: {
         type: 'boolean',
       },

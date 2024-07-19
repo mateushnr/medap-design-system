@@ -1,5 +1,11 @@
 # @medap-ui/react
 
+## 1.2.0
+
+### Minor Changes
+
+- Created new button state isLoading
+
 ## 1.1.7
 
 ### Patch Changes

@@ -1,7 +1,11 @@
-import { styled } from '../styles'
-import { ComponentProps, ElementType } from 'react'
+import { keyframes, styled } from '../../styles'
 
-export const IconButton = styled('button', {
+const spin = keyframes({
+  '0%': { transform: 'rotate(0deg)' },
+  '100%': { transform: 'rotate(360deg)' },
+})
+
+export const IconButtonContainer = styled('button', {
   all: 'unset',
   borderRadius: '$small',
   boxSizing: 'border-box',
@@ -120,8 +124,17 @@ export const IconButton = styled('button', {
   },
 })
 
-export interface IconButtonProps extends ComponentProps<typeof IconButton> {
-  as?: ElementType
-}
+export const SpinLoader = styled('span', {
+  position: 'absolute',
+  border: '3px solid $gray_200',
+  borderTop: '3px solid #3498db',
+  borderRadius: '50%',
+  width: '8px',
+  height: '8px',
+  animation: `${spin} 1.5s linear infinite`,
+})
 
-IconButton.displayName = 'IconButton'
+export const HiddenText = styled('span', {
+  visibility: 'hidden',
+  lineHeight: 0,
+})

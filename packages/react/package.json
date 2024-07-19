@@ -1,6 +1,6 @@
 {
   "name": "@medap-ui/react",
-  "version": "1.1.7",
+  "version": "1.2.0",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",

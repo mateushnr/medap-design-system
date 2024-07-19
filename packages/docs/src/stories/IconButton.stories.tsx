@@ -11,6 +11,7 @@ export default {
     variant: 'icon_brand',
     size: 'medium',
     disabled: false,
+    isLoading: false,
   },
   argTypes: {
     children: {
@@ -32,6 +33,12 @@ export default {
     },
 
     disabled: {
+      control: {
+        type: 'boolean',
+      },
+    },
+
+    isLoading: {
       control: {
         type: 'boolean',
       },
