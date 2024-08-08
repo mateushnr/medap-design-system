@@ -209,6 +209,7 @@ export const SelectOptionsContainer = styled('div', {
 
   position: 'absolute',
   top: 50,
+  zIndex: 100,
 
   cursor: 'default',
 

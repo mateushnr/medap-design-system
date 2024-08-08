@@ -106,6 +106,7 @@ export const Input = styled('input', {
   border: 0,
   width: '100%',
   zIndex: 2,
+  cursor: 'text',
 
   '&:focus': {
     outline: 0,

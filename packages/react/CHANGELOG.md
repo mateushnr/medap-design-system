@@ -1,5 +1,11 @@
 # @medap-ui/react
 
+## 1.3.1
+
+### Patch Changes
+
+- Fixed select options container overlap
+
 ## 1.3.0
 
 ### Minor Changes

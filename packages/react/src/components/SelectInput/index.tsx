@@ -38,7 +38,7 @@ export interface SelectInputProps extends ComponentProps<typeof Select> {
   controlledPlaceholderState?: boolean | undefined
   isRequired?: boolean
   optionsList?: SelectOption[] | undefined
-  selectDisabled: boolean | undefined
+  selectDisabled?: boolean | undefined
 }
 
 interface PlaceholderVariantAttributesProps {
