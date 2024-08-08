@@ -11,7 +11,7 @@ export default {
     textAreaSize: 'medium',
     textAreaWidth: 'medium',
     textAreaHeight: 'small',
-    textAreaPlaceholder: '',
+    textAreaPlaceholder: 'Placeholder',
     isRequired: false,
   },
   argTypes: {

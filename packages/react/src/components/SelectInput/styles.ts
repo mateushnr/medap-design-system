@@ -1,8 +1,9 @@
 import { styled } from '../../styles'
 
-export const TextInputContainer = styled('div', {
+export const SelectInputContainer = styled('div', {
   display: 'flex',
   flexDirection: 'column',
+  position: 'relative',
 
   variants: {
     inputsize: {
@@ -26,6 +27,14 @@ export const TextInputContainer = styled('div', {
         '& > span': {
           minHeight: 14,
           fontSize: 10,
+        },
+
+        '& > div p': {
+          fontSize: '$small !important',
+        },
+
+        '& > :nth-child(3)': {
+          top: 40,
         },
       },
       medium: {
@@ -81,8 +90,8 @@ export const TextInputContainer = styled('div', {
   },
 })
 
-export const InputText = styled('div', {
-  cursor: 'text',
+export const InputSelect = styled('div', {
+  cursor: 'default',
   position: 'relative',
   backgroundColor: '$gray_50',
   borderRadius: '$small',
@@ -91,6 +100,7 @@ export const InputText = styled('div', {
 
   display: 'flex',
   alignItems: 'center',
+  justifyContent: 'space-between',
   gap: '$3',
 
   '&:has(input:focus)': {
@@ -99,11 +109,10 @@ export const InputText = styled('div', {
 
   '&:has(input:disabled)': {
     opacity: 0.5,
-    cursor: 'not-allowed',
   },
 })
 
-export const Input = styled('input', {
+export const Select = styled('input', {
   fontFamily: '$default',
   background: 'transparent',
   color: '$gray_900',
@@ -111,6 +120,8 @@ export const Input = styled('input', {
   border: 0,
   width: '100%',
   zIndex: 2,
+
+  cursor: 'default',
 
   '&:focus': {
     outline: 0,
@@ -144,7 +155,7 @@ export const Placeholder = styled('span', {
         fontSize: '$small',
       },
       medium: {
-        left: 21,
+        left: 22,
         fontSize: '$medium',
       },
       iconsmall: {
@@ -168,4 +179,80 @@ export const ErrorLabel = styled('span', {
   fontFamily: '$default',
   color: '$danger_500',
   fontWeight: '$light',
+})
+
+export const OpenSelectOptionsIcon = styled('div', {
+  lineHeight: 0,
+
+  variants: {
+    optionsOpen: {
+      true: {
+        svg: { transform: 'rotate(180deg)' },
+      },
+      false: {
+        svg: {
+          transform: 'rotate(0deg)',
+        },
+      },
+    },
+  },
+})
+
+export const SelectOptionsContainer = styled('div', {
+  display: 'block',
+  padding: '0 !important',
+  width: '100%',
+  minHeight: '20px',
+  maxHeight: 333,
+
+  overflow: 'auto',
+
+  position: 'absolute',
+  top: 50,
+
+  cursor: 'default',
+
+  backgroundColor: '$gray_50',
+  borderRadius: '$small',
+  boxSizing: 'border-box',
+  border: '1px solid $gray_200',
+})
+
+export const Option = styled('div', {
+  display: 'block',
+  padding: '$3 $4',
+  width: '100%',
+
+  cursor: 'default',
+
+  boxSizing: 'border-box',
+  borderBottom: '1px solid $gray_100',
+
+  variants: {
+    selected: {
+      true: {
+        backgroundColor: '$brand_100',
+      },
+      false: {
+        backgroundColor: '$gray_50',
+
+        '&:hover': {
+          transition: 'background 0.3s',
+          backgroundColor: '$gray_100',
+        },
+      },
+    },
+  },
+
+  defaultVariants: {
+    selected: 'false',
+  },
+})
+
+export const OptionValue = styled('span', {
+  display: 'none',
+})
+
+export const SelectedValue = styled('input', {
+  display: 'none',
 })

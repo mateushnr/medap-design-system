@@ -1,5 +1,11 @@
 # @medap-ui/react
 
+## 1.3.0
+
+### Minor Changes
+
+- Add SelectInput and DateInput component
+
 ## 1.2.0
 
 ### Minor Changes

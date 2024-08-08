@@ -5,6 +5,8 @@ export * from './components/Avatar'
 export * from './components/Button'
 export * from './components/IconButton'
 export * from './components/TextInput'
+export * from './components/SelectInput'
+export * from './components/DateInput'
 export * from './components/TextArea'
 export * from './components/Modal'
 

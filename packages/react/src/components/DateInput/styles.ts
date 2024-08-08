@@ -1,6 +1,6 @@
 import { styled } from '../../styles'
 
-export const TextInputContainer = styled('div', {
+export const DateInputContainer = styled('div', {
   display: 'flex',
   flexDirection: 'column',
 
@@ -52,11 +52,6 @@ export const TextInputContainer = styled('div', {
       },
     },
     inputwidth: {
-      small: {
-        '& > div': {
-          maxWidth: 130,
-        },
-      },
       medium: {
         '& > div': {
           maxWidth: 240,
@@ -120,9 +115,14 @@ export const Input = styled('input', {
     cursor: 'not-allowed',
   },
 
-  '&::placeholder': {
-    color: '$gray_500',
+  variants: {
+    isPlaceholder: {
+      true: { color: '$gray_500' },
+      false: { color: '$gray_900' },
+    },
   },
+
+  defaultVariants: { isPlaceholder: 'true' },
 })
 
 export const Placeholder = styled('span', {
@@ -133,25 +133,40 @@ export const Placeholder = styled('span', {
   fontWeight: '$light',
 
   '& > span': {
-    marginLeft: 2,
     color: '$danger_400',
   },
 
   variants: {
     placeholdersize: {
       small: {
+        '& > span': {
+          marginLeft: 80,
+        },
+
         left: 18,
         fontSize: '$small',
       },
       medium: {
+        '& > span': {
+          marginLeft: 105,
+        },
+
         left: 21,
         fontSize: '$medium',
       },
       iconsmall: {
+        '& > span': {
+          marginLeft: 80,
+        },
+
         left: 44,
         fontSize: '$small',
       },
       iconmedium: {
+        '& > span': {
+          marginLeft: 105,
+        },
+
         left: 50,
         fontSize: '$medium',
       },

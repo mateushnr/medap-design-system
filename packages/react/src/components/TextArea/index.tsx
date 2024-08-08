@@ -106,7 +106,7 @@ export const TextArea = forwardRef<ElementRef<typeof Textarea>, TextAreaProps>(
             onChange={handleTextAreaChange}
             {...props}
           ></Textarea>
-          {controlledPlaceholderState && showPlaceholder ? (
+          {showPlaceholder ? (
             <Placeholder {...placeholderVariantsAttributes}>
               {textAreaPlaceholder}
               {isRequired ? <span>*</span> : null}
