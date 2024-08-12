@@ -250,10 +250,6 @@ export const Option = styled('div', {
   },
 })
 
-export const OptionValue = styled('span', {
-  display: 'none',
-})
-
 export const SelectedValue = styled('input', {
   display: 'none',
 })

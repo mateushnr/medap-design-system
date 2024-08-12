@@ -1,5 +1,11 @@
 # @medap-ui/react
 
+## 1.3.4
+
+### Patch Changes
+
+- Fix SelectInput controlled value with zod Integration
+
 ## 1.3.3
 
 ### Patch Changes

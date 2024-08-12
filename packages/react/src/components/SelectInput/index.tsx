@@ -7,6 +7,7 @@ import {
   ElementRef,
   useImperativeHandle,
   useEffect,
+  ChangeEvent,
 } from 'react'
 import {
   ErrorLabel,
@@ -17,7 +18,6 @@ import {
   SelectOptionsContainer,
   OpenSelectOptionsIcon,
   Option,
-  OptionValue,
   SelectedValue,
 } from './styles'
 import { ChevronDown } from 'lucide-react'
@@ -39,6 +39,7 @@ export interface SelectInputProps extends ComponentProps<typeof Select> {
   isRequired?: boolean
   optionsList?: SelectOption[] | undefined
   selectDisabled?: boolean | undefined
+  handleSelectedInputChange: (e: ChangeEvent<HTMLInputElement>) => void
 }
 
 interface PlaceholderVariantAttributesProps {
@@ -60,6 +61,7 @@ export const SelectInput = forwardRef<
       controlledPlaceholderState,
       optionsList,
       selectDisabled,
+      handleSelectedInputChange,
       ...props
     }: SelectInputProps,
     ref,
@@ -173,6 +175,7 @@ export const SelectInput = forwardRef<
           <SelectedValue
             ref={inputRef}
             value={selectedOption?.value}
+            onChange={handleSelectedInputChange}
             {...props}
           />
           <Select
@@ -204,7 +207,6 @@ export const SelectInput = forwardRef<
                       key={option.value}
                       selected={selectedOption?.value === option.value}
                     >
-                      <OptionValue>{option.value}</OptionValue>
                       <Text size={'medium'} color={'gray_800'}>
                         {option.text}
                       </Text>
