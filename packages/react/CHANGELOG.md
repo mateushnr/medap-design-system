@@ -1,5 +1,11 @@
 # @medap-ui/react
 
+## 1.3.3
+
+### Patch Changes
+
+- Fix SelectInput ref
+
 ## 1.3.2
 
 ### Patch Changes

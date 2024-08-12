@@ -170,9 +170,12 @@ export const SelectInput = forwardRef<
           }}
         >
           {icon || null}
-          <SelectedValue value={selectedOption?.value} {...props} />
-          <Select
+          <SelectedValue
             ref={inputRef}
+            value={selectedOption?.value}
+            {...props}
+          />
+          <Select
             disabled={selectDisabled}
             readOnly
             value={selectedOption?.text}
