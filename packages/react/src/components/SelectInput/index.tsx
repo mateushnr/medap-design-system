@@ -68,9 +68,10 @@ export const SelectInput = forwardRef<
     const inputContainerRef = useRef<HTMLDivElement>(null)
     const selectioOptionsRef = useRef<HTMLDivElement>(null)
     const [selectOptionsOpen, setSelectOptionsOpen] = useState<boolean>(false)
-    const [selectedOption, setSelectedOption] = useState<SelectOption | null>(
-      null,
-    )
+    const [selectedOption, setSelectedOption] = useState<SelectOption>({
+      value: '',
+      text: '',
+    })
 
     useImperativeHandle(ref, () => inputRef.current as HTMLInputElement)
 
