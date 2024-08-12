@@ -127,26 +127,32 @@ export const SelectInput = forwardRef<
       setShowPlaceholder(false)
     }
 
-    const checkPreSelectedOption = (optionsList: SelectOption[]) => {
-      optionsList.forEach((option) => {
-        if (option.selected) {
-          setSelectedOption(option)
-          setShowPlaceholder(false)
-        }
-      })
-    }
-
-    const checkFirstOption = (optionsList: SelectOption[]) => {
-      setSelectedOption(optionsList[0])
-      setShowPlaceholder(false)
-    }
-
     useEffect(() => {
       if (controlledPlaceholderState !== undefined)
         setShowPlaceholder(controlledPlaceholderState)
     }, [controlledPlaceholderState])
 
     useEffect(() => {
+      const checkPreSelectedOption = (optionsList: SelectOption[]) => {
+        optionsList.forEach((option) => {
+          if (option.selected) {
+            if (handleSelectedInputChange !== undefined) {
+              handleSelectedInputChange(option.value)
+            }
+            setSelectedOption(option)
+            setShowPlaceholder(false)
+          }
+        })
+      }
+
+      const checkFirstOption = (optionsList: SelectOption[]) => {
+        setSelectedOption(optionsList[0])
+        if (handleSelectedInputChange !== undefined) {
+          handleSelectedInputChange(optionsList[0].value)
+        }
+        setShowPlaceholder(false)
+      }
+
       if (optionsList) {
         if (!inputPlaceholder) {
           checkFirstOption(optionsList)
@@ -163,7 +169,7 @@ export const SelectInput = forwardRef<
           handleSelectOptionsOutsideClick,
         )
       }
-    }, [optionsList, inputPlaceholder])
+    }, [optionsList, inputPlaceholder, handleSelectedInputChange])
 
     return (
       <SelectInputContainer {...variantsAttributes}>

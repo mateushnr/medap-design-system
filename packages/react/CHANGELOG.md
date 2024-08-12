@@ -1,5 +1,11 @@
 # @medap-ui/react
 
+## 1.3.6
+
+### Patch Changes
+
+- Fix SelectInput pre-selected value and first option value
+
 ## 1.3.5
 
 ### Patch Changes
