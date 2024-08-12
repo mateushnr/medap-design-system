@@ -7,7 +7,6 @@ import {
   ElementRef,
   useImperativeHandle,
   useEffect,
-  ChangeEvent,
 } from 'react'
 import {
   ErrorLabel,
@@ -39,7 +38,7 @@ export interface SelectInputProps extends ComponentProps<typeof Select> {
   isRequired?: boolean
   optionsList?: SelectOption[] | undefined
   selectDisabled?: boolean | undefined
-  handleSelectedInputChange: (e: ChangeEvent<HTMLInputElement>) => void
+  handleSelectedInputChange?: (selectedValue: string) => void
 }
 
 interface PlaceholderVariantAttributesProps {
@@ -122,6 +121,9 @@ export const SelectInput = forwardRef<
     const handleSelectOptionClick = (option: SelectOption) => {
       setSelectOptionsOpen(false)
       setSelectedOption(option)
+      if (handleSelectedInputChange !== undefined) {
+        handleSelectedInputChange(option.value)
+      }
       setShowPlaceholder(false)
     }
 
@@ -175,7 +177,6 @@ export const SelectInput = forwardRef<
           <SelectedValue
             ref={inputRef}
             value={selectedOption?.value}
-            onChange={handleSelectedInputChange}
             {...props}
           />
           <Select
