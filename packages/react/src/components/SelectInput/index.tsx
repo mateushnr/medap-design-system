@@ -128,8 +128,6 @@ export const SelectInput = forwardRef<
         handleSelectedInputChange(option.value)
       }
       setShowPlaceholder(false)
-
-      setShouldSetDefaultSelectedOption(false)
     }
 
     useEffect(() => {
@@ -169,6 +167,8 @@ export const SelectInput = forwardRef<
           checkFirstOption(optionsList)
         }
         checkPreSelectedOption(optionsList)
+
+        setShouldSetDefaultSelectedOption(false)
       }
 
       document.addEventListener('mousedown', handleSelectOptionsOutsideClick)
