@@ -1,5 +1,11 @@
 # @medap-ui/react
 
+## 1.3.10
+
+### Patch Changes
+
+- Fix SelectInput DefaultSelectedOption state
+
 ## 1.3.9
 
 ### Patch Changes

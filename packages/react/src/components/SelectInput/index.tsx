@@ -129,7 +129,7 @@ export const SelectInput = forwardRef<
       }
       setShowPlaceholder(false)
 
-      setShouldSetDefaultSelectedOption(!shouldSetDefaultSelectedOption)
+      setShouldSetDefaultSelectedOption(false)
     }
 
     useEffect(() => {
