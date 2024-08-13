@@ -1,5 +1,11 @@
 # @medap-ui/react
 
+## 1.3.7
+
+### Patch Changes
+
+- Fix SelectInput pre-selected and initial option looping
+
 ## 1.3.6
 
 ### Patch Changes

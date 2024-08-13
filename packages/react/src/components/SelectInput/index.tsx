@@ -133,6 +133,8 @@ export const SelectInput = forwardRef<
     }, [controlledPlaceholderState])
 
     useEffect(() => {
+      let shouldSetSelectedOption = true
+
       const checkPreSelectedOption = (optionsList: SelectOption[]) => {
         optionsList.forEach((option) => {
           if (option.selected) {
@@ -153,12 +155,13 @@ export const SelectInput = forwardRef<
         setShowPlaceholder(false)
       }
 
-      if (optionsList) {
+      if (optionsList && shouldSetSelectedOption) {
         if (!inputPlaceholder) {
           checkFirstOption(optionsList)
         }
-
         checkPreSelectedOption(optionsList)
+
+        shouldSetSelectedOption = false
       }
 
       document.addEventListener('mousedown', handleSelectOptionsOutsideClick)
