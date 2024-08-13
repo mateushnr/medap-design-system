@@ -74,6 +74,8 @@ export const SelectInput = forwardRef<
       value: '',
       text: '',
     })
+    const [shouldSetDefaultSelectedOption, setShouldSetDefaultSelectedOption] =
+      useState<boolean>(true)
 
     useImperativeHandle(ref, () => inputRef.current as HTMLInputElement)
 
@@ -126,6 +128,8 @@ export const SelectInput = forwardRef<
         handleSelectedInputChange(option.value)
       }
       setShowPlaceholder(false)
+
+      setShouldSetDefaultSelectedOption(!shouldSetDefaultSelectedOption)
     }
 
     useEffect(() => {
@@ -160,15 +164,11 @@ export const SelectInput = forwardRef<
     )
 
     useEffect(() => {
-      let shouldSetDefaultSelectedOption = true
-
       if (optionsList && shouldSetDefaultSelectedOption) {
         if (!inputPlaceholder) {
           checkFirstOption(optionsList)
         }
         checkPreSelectedOption(optionsList)
-
-        shouldSetDefaultSelectedOption = false
       }
 
       document.addEventListener('mousedown', handleSelectOptionsOutsideClick)
@@ -184,6 +184,7 @@ export const SelectInput = forwardRef<
       inputPlaceholder,
       checkPreSelectedOption,
       checkFirstOption,
+      shouldSetDefaultSelectedOption,
     ])
 
     return (
