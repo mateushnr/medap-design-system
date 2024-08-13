@@ -7,6 +7,7 @@ import {
   ElementRef,
   useImperativeHandle,
   useEffect,
+  useCallback,
 } from 'react'
 import {
   ErrorLabel,
@@ -132,10 +133,8 @@ export const SelectInput = forwardRef<
         setShowPlaceholder(controlledPlaceholderState)
     }, [controlledPlaceholderState])
 
-    useEffect(() => {
-      let shouldSetSelectedOption = true
-
-      const checkPreSelectedOption = (optionsList: SelectOption[]) => {
+    const checkPreSelectedOption = useCallback(
+      (optionsList: SelectOption[]) => {
         optionsList.forEach((option) => {
           if (option.selected) {
             if (handleSelectedInputChange !== undefined) {
@@ -145,23 +144,31 @@ export const SelectInput = forwardRef<
             setShowPlaceholder(false)
           }
         })
-      }
+      },
+      [handleSelectedInputChange],
+    )
 
-      const checkFirstOption = (optionsList: SelectOption[]) => {
+    const checkFirstOption = useCallback(
+      (optionsList: SelectOption[]) => {
         setSelectedOption(optionsList[0])
         if (handleSelectedInputChange !== undefined) {
           handleSelectedInputChange(optionsList[0].value)
         }
         setShowPlaceholder(false)
-      }
+      },
+      [handleSelectedInputChange],
+    )
 
-      if (optionsList && shouldSetSelectedOption) {
+    useEffect(() => {
+      let shouldSetDefaultSelectedOption = true
+
+      if (optionsList && shouldSetDefaultSelectedOption) {
         if (!inputPlaceholder) {
           checkFirstOption(optionsList)
         }
         checkPreSelectedOption(optionsList)
 
-        shouldSetSelectedOption = false
+        shouldSetDefaultSelectedOption = false
       }
 
       document.addEventListener('mousedown', handleSelectOptionsOutsideClick)
@@ -172,7 +179,12 @@ export const SelectInput = forwardRef<
           handleSelectOptionsOutsideClick,
         )
       }
-    }, [optionsList, inputPlaceholder, handleSelectedInputChange])
+    }, [
+      optionsList,
+      inputPlaceholder,
+      checkPreSelectedOption,
+      checkFirstOption,
+    ])
 
     return (
       <SelectInputContainer {...variantsAttributes}>

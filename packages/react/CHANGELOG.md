@@ -1,5 +1,11 @@
 # @medap-ui/react
 
+## 1.3.8
+
+### Patch Changes
+
+- Fix SelectInput useEffect dependencies functions to useCallback
+
 ## 1.3.7
 
 ### Patch Changes
