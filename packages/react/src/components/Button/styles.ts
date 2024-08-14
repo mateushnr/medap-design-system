@@ -6,7 +6,6 @@ const spin = keyframes({
 })
 
 export const ButtonContainer = styled('button', {
-  position: 'relative',
   all: 'unset',
   fontFamily: '$default',
   borderRadius: '$small',
@@ -176,7 +175,7 @@ export const ButtonContainer = styled('button', {
 })
 
 export const SpinLoader = styled('span', {
-  position: 'absolute',
+  display: 'block',
   border: '3px solid $gray_100',
   borderTop: '3px solid #3498db',
   borderRadius: '50%',
@@ -186,5 +185,5 @@ export const SpinLoader = styled('span', {
 })
 
 export const HiddenText = styled('span', {
-  visibility: 'hidden',
+  display: 'none',
 })
