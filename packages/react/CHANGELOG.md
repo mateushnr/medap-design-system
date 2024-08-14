@@ -1,5 +1,11 @@
 # @medap-ui/react
 
+## 1.3.12
+
+### Patch Changes
+
+- Fix button spin loader position
+
 ## 1.3.11
 
 ### Patch Changes

@@ -6,6 +6,7 @@ const spin = keyframes({
 })
 
 export const ButtonContainer = styled('button', {
+  position: 'relative',
   all: 'unset',
   fontFamily: '$default',
   borderRadius: '$small',
