@@ -150,6 +150,18 @@ export const SelectInput = forwardRef<
       [handleSelectedInputChange],
     )
 
+    const checkNewSelectedOption = useCallback(
+      (optionsList: SelectOption[]) => {
+        optionsList.forEach((option) => {
+          if (option.selected) {
+            setSelectedOption(option)
+            setShowPlaceholder(false)
+          }
+        })
+      },
+      [],
+    )
+
     const checkFirstOption = useCallback(
       (optionsList: SelectOption[]) => {
         setSelectedOption(optionsList[0])
@@ -163,9 +175,9 @@ export const SelectInput = forwardRef<
 
     useEffect(() => {
       if (optionsList && !shouldSetDefaultSelectedOption) {
-        checkPreSelectedOption(optionsList)
+        checkNewSelectedOption(optionsList)
       }
-    }, [optionsList, shouldSetDefaultSelectedOption, checkPreSelectedOption])
+    }, [optionsList, shouldSetDefaultSelectedOption, checkNewSelectedOption])
 
     useEffect(() => {
       if (optionsList && shouldSetDefaultSelectedOption) {

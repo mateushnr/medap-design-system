@@ -1,5 +1,11 @@
 # @medap-ui/react
 
+## 1.3.15
+
+### Patch Changes
+
+- Fix SelectInput new pre-selected data
+
 ## 1.3.14
 
 ### Patch Changes
