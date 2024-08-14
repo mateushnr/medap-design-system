@@ -1,5 +1,11 @@
 # @medap-ui/react
 
+## 1.3.14
+
+### Patch Changes
+
+- Feat: add change SelecteInput data pre-selected option
+
 ## 1.3.13
 
 ### Patch Changes

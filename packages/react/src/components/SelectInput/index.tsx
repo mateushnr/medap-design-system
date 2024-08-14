@@ -26,7 +26,7 @@ import { Text } from '../Text'
 interface SelectOption {
   value: string
   text: string
-  selected?: true
+  selected?: boolean
 }
 
 export interface SelectInputProps extends ComponentProps<typeof Select> {
@@ -160,6 +160,12 @@ export const SelectInput = forwardRef<
       },
       [handleSelectedInputChange],
     )
+
+    useEffect(() => {
+      if (optionsList && !shouldSetDefaultSelectedOption) {
+        checkPreSelectedOption(optionsList)
+      }
+    }, [optionsList, shouldSetDefaultSelectedOption, checkPreSelectedOption])
 
     useEffect(() => {
       if (optionsList && shouldSetDefaultSelectedOption) {
