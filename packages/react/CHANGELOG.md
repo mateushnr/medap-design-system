@@ -1,5 +1,11 @@
 # @medap-ui/react
 
+## 2.0.0
+
+### Major Changes
+
+- Add SearchInput to SelectInput
+
 ## 1.3.15
 
 ### Patch Changes

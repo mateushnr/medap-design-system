@@ -253,3 +253,86 @@ export const Option = styled('div', {
 export const SelectedValue = styled('input', {
   display: 'none',
 })
+
+export const SelectSearchInputContainer = styled('div', {
+  background: '$gray_50',
+  padding: '$2',
+  borderBottom: '1px solid $gray_100',
+  display: 'flex',
+})
+
+export const SelectSearchClearButton = styled('div', {
+  display: 'flex',
+  alignItems: 'center',
+  justifyItems: 'center',
+  boxSizing: 'border-box',
+  borderRadius: '$small 0 0 $small',
+  padding: '$1',
+  border: '1px solid $gray_200',
+  borderRight: 'none',
+  backgroundColor: '$white',
+  cursor: 'pointer',
+
+  svg: {
+    color: '$gray_500 !important',
+    lineHeight: 0,
+  },
+
+  '&:hover': {
+    transition: 'background 0.3s',
+    backgroundColor: '$gray_50',
+
+    svg: {
+      transition: 'color 0.3s',
+      color: '$gray_600 !important',
+    },
+  },
+
+  variants: {
+    size: {
+      small: {
+        svg: {
+          width: '$3 !important',
+        },
+      },
+      medium: {
+        svg: {
+          width: '$4 !important',
+        },
+      },
+    },
+  },
+
+  defaultVariants: {
+    size: 'medium',
+  },
+})
+
+export const SelectSearchInput = styled('input', {
+  display: 'block',
+  boxSizing: 'border-box',
+  borderRadius: '0 $small $small 0',
+  outline: 'none',
+  padding: '$2',
+  border: '1px solid $gray_200',
+  color: '$gray_700',
+  fontFamily: '$default',
+  fontWeight: '$regular',
+  flexGrow: 1,
+  width: '100%',
+
+  '&::placeholder': { color: '$gray_500', fontWeight: '$light' },
+
+  variants: {
+    size: {
+      small: { fontSize: '$small' },
+      medium: {
+        fontSize: '$medium',
+      },
+    },
+  },
+
+  defaultVariants: {
+    size: 'medium',
+  },
+})

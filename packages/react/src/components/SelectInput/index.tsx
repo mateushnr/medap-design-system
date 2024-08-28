@@ -19,8 +19,11 @@ import {
   OpenSelectOptionsIcon,
   Option,
   SelectedValue,
+  SelectSearchInput,
+  SelectSearchInputContainer,
+  SelectSearchClearButton,
 } from './styles'
-import { ChevronDown } from 'lucide-react'
+import { ChevronDown, X } from 'lucide-react'
 import { Text } from '../Text'
 
 interface SelectOption {
@@ -39,6 +42,7 @@ export interface SelectInputProps extends ComponentProps<typeof Select> {
   isRequired?: boolean
   optionsList?: SelectOption[] | undefined
   selectDisabled?: boolean | undefined
+  hasSearch?: boolean | undefined
   handleSelectedInputChange?: (selectedValue: string) => void
 }
 
@@ -61,6 +65,7 @@ export const SelectInput = forwardRef<
       controlledPlaceholderState,
       optionsList,
       selectDisabled,
+      hasSearch,
       handleSelectedInputChange,
       ...props
     }: SelectInputProps,
@@ -76,6 +81,12 @@ export const SelectInput = forwardRef<
     })
     const [shouldSetDefaultSelectedOption, setShouldSetDefaultSelectedOption] =
       useState<boolean>(true)
+
+    const [filteredOptionsList, setFilteredOptionsList] = useState<
+      SelectOption[] | undefined
+    >(optionsList)
+
+    const [searchedValue, setSearchedValue] = useState<string | undefined>('')
 
     useImperativeHandle(ref, () => inputRef.current as HTMLInputElement)
 
@@ -173,6 +184,23 @@ export const SelectInput = forwardRef<
       [handleSelectedInputChange],
     )
 
+    const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+      const searchedValue = event.target.value.toLowerCase()
+      setSearchedValue(event.target.value)
+
+      const filteredOptions = optionsList?.filter((option) =>
+        option.text.toLowerCase().includes(searchedValue),
+      )
+
+      setFilteredOptionsList(filteredOptions || undefined)
+    }
+
+    const handleSelectSearchClearClick = () => {
+      setSearchedValue('')
+
+      setFilteredOptionsList(optionsList)
+    }
+
     useEffect(() => {
       if (optionsList && !shouldSetDefaultSelectedOption) {
         checkNewSelectedOption(optionsList)
@@ -218,6 +246,7 @@ export const SelectInput = forwardRef<
             ref={inputRef}
             value={selectedOption?.value}
             {...props}
+            readOnly={true}
           />
           <Select
             disabled={selectDisabled}
@@ -240,8 +269,25 @@ export const SelectInput = forwardRef<
 
         {selectOptionsOpen ? (
           <SelectOptionsContainer ref={selectioOptionsRef}>
-            {optionsList
-              ? optionsList.map((option) => {
+            {hasSearch ? (
+              <SelectSearchInputContainer>
+                <SelectSearchClearButton
+                  onClick={handleSelectSearchClearClick}
+                  size={inputSize}
+                >
+                  <X />
+                </SelectSearchClearButton>
+                <SelectSearchInput
+                  size={inputSize}
+                  placeholder="Pesquisar..."
+                  onChange={handleSearchChange}
+                  value={searchedValue}
+                />
+              </SelectSearchInputContainer>
+            ) : null}
+
+            {filteredOptionsList
+              ? filteredOptionsList.map((option) => {
                   return (
                     <Option
                       onClick={() => handleSelectOptionClick(option)}

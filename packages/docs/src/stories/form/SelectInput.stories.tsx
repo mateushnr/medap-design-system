@@ -36,6 +36,9 @@ export default {
     isRequired: {
       control: 'boolean',
     },
+    hasSearch: {
+      control: 'boolean',
+    },
   },
 } as Meta<SelectInputProps>
 
@@ -103,6 +106,20 @@ export const PreSelectedValue: StoryObj<SelectInputProps> = {
 export const NoPlaceholder: StoryObj<SelectInputProps> = {
   args: {
     inputPlaceholder: '',
+    optionsList: [
+      { value: 'option1', text: 'Option 1' },
+      { value: 'option2', text: 'Option 2' },
+      { value: 'option3', text: 'Option 3' },
+      { value: 'option4', text: 'Option 4' },
+      { value: 'option5', text: 'Option 5' },
+    ],
+  },
+}
+
+export const WithSearch: StoryObj<SelectInputProps> = {
+  args: {
+    inputPlaceholder: 'Placeholder',
+    hasSearch: true,
     optionsList: [
       { value: 'option1', text: 'Option 1' },
       { value: 'option2', text: 'Option 2' },
