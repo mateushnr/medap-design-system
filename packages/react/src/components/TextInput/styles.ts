@@ -163,6 +163,20 @@ export const Placeholder = styled('span', {
   },
 })
 
+export const ContainerShowPasswordOption = styled('div', {
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+
+  cursor: 'pointer',
+
+  svg: { color: '$gray_500 !important' },
+
+  '&:hover': {
+    svg: { transition: 'color 0.3s', color: '$gray_600 !important' },
+  },
+})
+
 export const ErrorLabel = styled('span', {
   display: 'block',
   fontFamily: '$default',

@@ -12,6 +12,7 @@ export default {
     inputWidth: 'medium',
     inputPlaceholder: '',
     isRequired: false,
+    showPasswordOption: false,
   },
   argTypes: {
     inputSize: {
@@ -23,6 +24,9 @@ export default {
       control: 'inline-radio',
     },
     isRequired: {
+      control: 'boolean',
+    },
+    showPasswordOption: {
       control: 'boolean',
     },
   },
@@ -73,5 +77,13 @@ export const FullWidth: StoryObj<TextInputProps> = {
   args: {
     inputPlaceholder: 'Placeholder',
     inputWidth: 'full',
+  },
+}
+
+export const showPasswordOption: StoryObj<TextInputProps> = {
+  args: {
+    inputPlaceholder: 'Placeholder',
+    type: 'password',
+    showPasswordOption: true,
   },
 }

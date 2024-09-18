@@ -1,5 +1,11 @@
 # @medap-ui/react
 
+## 2.1.1
+
+### Patch Changes
+
+- Add show password option to text input
+
 ## 2.1.0
 
 ### Minor Changes
