@@ -1,0 +1,5 @@
+import{B as m}from"./index-IuHiE457.js";import"./index-DLtrBsm9.js";import"./index-uCp2LrAq.js";import"./_commonjsHelpers-BosuxZz1.js";import"./index-DKghJPm2.js";import"./index-BOkhicXD.js";import"./jsx-runtime-X2b_N9AH.js";const g={title:"Components/Box",component:m,tags:["autodocs"],args:{children:"Elemento de caixa",variant:"box_primary",width:"default",size:"medium"},argTypes:{variant:{options:["box_primary","box_secondary"],control:{type:"inline-radio"}},width:{options:["default","full"],control:{type:"inline-radio"}},size:{options:["small","medium","big"],control:{type:"inline-radio"}}}},r={},o={args:{variant:"box_secondary"}};var a,e,t;r.parameters={...r.parameters,docs:{...(a=r.parameters)==null?void 0:a.docs,source:{originalSource:"{}",...(t=(e=r.parameters)==null?void 0:e.docs)==null?void 0:t.source}}};var s,i,n;o.parameters={...o.parameters,docs:{...(s=o.parameters)==null?void 0:s.docs,source:{originalSource:`{
+  args: {
+    variant: 'box_secondary'
+  }
+}`,...(n=(i=o.parameters)==null?void 0:i.docs)==null?void 0:n.source}}};const _=["Primary","Secondary"];export{r as Primary,o as Secondary,_ as __namedExportsOrder,g as default};
