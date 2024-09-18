@@ -9,5 +9,6 @@ export * from './components/SelectInput'
 export * from './components/DateInput'
 export * from './components/TextArea'
 export * from './components/Modal'
+export * from './components/RadioInput'
 
 export * from './styles'
